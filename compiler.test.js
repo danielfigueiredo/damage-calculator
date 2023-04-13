@@ -31,7 +31,12 @@ describe("compiler tests", () => {
   });
 
   describe("#evaluate", () => {
-    [{ program: "3d6+3+(2d4+1)", result: 6 }].forEach(({ program, result }) => {
+    // TODO: update results when dice syntax is supported
+    [
+      { program: "3d6+3+(2d4+1)", result: 6 },
+      { program: "6d8+1+(10/ 5)", result: 4 },
+      { program: "5*2+5d4-1", result: 10 },
+    ].forEach(({ program, result }) => {
       it(`resolves expression: ${program}`, () => {
         const expression = parse(program);
         expect(evaluate(expression)).toEqual(result);
