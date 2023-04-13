@@ -28,6 +28,11 @@ describe("compiler tests", () => {
         "d8",
       ]);
     });
+
+    it("parses multiple groups", () => {
+      const program = "(1d4+5)*(3d6-2)";
+      expect(parse(program)).toEqual([["1d4", "+", 5], "*", ["3d6", "-", 2]]);
+    });
   });
 
   describe("#evaluate", () => {
@@ -36,9 +41,11 @@ describe("compiler tests", () => {
       { program: "3d6+3+(2d4+1)", result: 6 },
       { program: "6d8+1+(10/ 5)", result: 4 },
       { program: "5*2+5d4-1", result: 10 },
+      { program: "(1d4+5)*(3d6-2)+d12", result: -5 },
     ].forEach(({ program, result }) => {
       it(`resolves expression: ${program}`, () => {
         const expression = parse(program);
+        console.log("expression", expression);
         expect(evaluate(expression)).toEqual(result);
       });
     });

@@ -32,8 +32,14 @@ const readTokens = (tokens = []) => {
 };
 
 const parse = (program = "") => {
-  const wrappedProgram = program.startsWith("(") ? program : `(${program})`;
-  return readTokens(tokenize(wrappedProgram));
+  const tokens = readTokens(tokenize(`(${program})`));
+  // we don't want to check for wrapping parenthesis, it is too costy
+  // easier to always wrap and remove the unnecessary nesting
+  if (tokens.length === 1 && Array.isArray(tokens[0])) {
+    return tokens[0];
+  } else {
+    return tokens;
+  }
 };
 
 const environment = () => ({
@@ -69,7 +75,7 @@ const evaluate = (exp, env = environment()) => {
       } else {
         return acc + curr;
       }
-    }, 0);
+    });
   } else {
     throw new SyntaxError("Unexpected expression");
   }
