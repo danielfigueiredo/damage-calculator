@@ -17,5 +17,9 @@ npm install
 ## Testing
 
 ```bash
-npm test
+# run test once
+npm run test
+
+# watch for changes
+npm run test:watch
 ```
