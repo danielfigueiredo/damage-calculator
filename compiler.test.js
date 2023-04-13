@@ -3,7 +3,7 @@ const { parse, evaluate } = require("./compiler");
 describe("compiler tests", () => {
   describe("#parse", () => {
     it("should compile", () => {
-      expect(true).toBe(true);
+      expect(parse("1")).toEqual([1]);
     });
 
     it("parses sub-expressions", () => {
