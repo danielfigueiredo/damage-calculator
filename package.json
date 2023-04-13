@@ -1,0 +1,22 @@
+{
+  "name": "damage-calculator",
+  "version": "1.0.0",
+  "description": "D&D Damage Calculator",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/danielfigueiredo/damage-calculator.git"
+  },
+  "author": "danielfigueiredo",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/danielfigueiredo/damage-calculator/issues"
+  },
+  "homepage": "https://github.com/danielfigueiredo/damage-calculator#readme",
+  "devDependencies": {
+    "jest": "^29.5.0"
+  }
+}
