@@ -1,0 +1,15 @@
+{
+  "name": "dice-compiler",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "author": "danielfigueiredo",
+  "scripts": {
+    "test": "jest",
+    "test:watch": "jest --watch"
+  },
+  "devDependencies": {
+    "jest": "^29.5.0"
+  },
+  "license": "MIT"
+}
